@@ -9,6 +9,7 @@ import Play from '../components/Play';
 import Leaderboard from '../components/Leaderboard';
 import Homepage from '../components/Homepage';
 import NotFound from '../components/NotFound';
+import PlayerStats from '../components/PlayerStats';
 
 // URL '/' : Has two buttons linking to their respective pages - “Leaderboard” and “Play”
 const App = () => {
@@ -28,7 +29,9 @@ const App = () => {
 			<Routes>
 				<Route exact path="/leaderboard" element={<Leaderboard />} />
 				<Route path="/play" element={<Play />} />
-				<Route exact path="/" element={<Homepage />} />
+				<Route path="leaderboard/:playerId" element={<PlayerStats />} />
+
+				<Route path="/" element={<Homepage />} />
 				<Route path="/*" element={<NotFound />} />
 			</Routes>
 		</div>
