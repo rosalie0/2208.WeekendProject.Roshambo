@@ -9,7 +9,7 @@ const PlayerStats = () => {
 	const [player, setPlayer] = useState({}); // Start with empty obj
 	const [doneLoading, setDoneLoading] = useState(false); // True if no longer loading
 
-	// Fetch info from our express API
+	// API Fetch
 	const getPlayer = async () => {
 		const response = await fetch(`/api/players/${playerId}`);
 		const json = await response.json();
@@ -17,14 +17,15 @@ const PlayerStats = () => {
 		setDoneLoading(true); // Now we can map through player.games because it has loaded!
 	};
 
+	// UseEffect
 	useEffect(() => {
 		getPlayer();
 	}, []);
 
-	console.log('Is player.games an array? ', Array.isArray(player.games));
+	// console.log('Is player.games an array? ', Array.isArray(player.games));
 
 	// Cannot do player.games.map if it has not loaded yet.
-	// Therefore use state doneLoading to prevent the map from running on {}.
+	// Therefore, use state doneLoading to prevent the map from running on {}.
 	if (!doneLoading) return <p>Loading...</p>;
 	else
 		return (

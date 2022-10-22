@@ -10,6 +10,7 @@ import Leaderboard from '../components/Leaderboard';
 import Homepage from '../components/Homepage';
 import NotFound from '../components/NotFound';
 import PlayerStats from '../components/PlayerStats';
+import CreatePlayerForm from '../components/CreatePlayerForm';
 
 // URL '/' : Has two buttons linking to their respective pages - “Leaderboard” and “Play”
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
 				<Link to="/play">
 					<button>Play</button>
 				</Link>
+				<Link to="/create-player">
+					<button>Create New Player</button>
+				</Link>
 			</div>
 
 			{/* Tells the URL in path URL what component it should load (element=) */}
@@ -30,6 +34,7 @@ const App = () => {
 				<Route exact path="/leaderboard" element={<Leaderboard />} />
 				<Route path="/play" element={<Play />} />
 				<Route path="leaderboard/:playerId" element={<PlayerStats />} />
+				<Route path="/create-player" element={<CreatePlayerForm />} />
 
 				<Route path="/" element={<Homepage />} />
 				<Route path="/*" element={<NotFound />} />

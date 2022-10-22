@@ -13,15 +13,18 @@ const Leaderboard = () => {
 	// State
 	const [players, setPlayers] = useState([]);
 
+	// API Fetch
 	const getPlayers = async () => {
 		const response = await fetch('/api/players');
 		const json = await response.json();
 		setPlayers(json);
 	};
 
+	// UseEffect
 	useEffect(() => {
 		getPlayers();
 	}, []);
+
 	return (
 		<div className="leaderboard-container">
 			<h1> Leaderboard </h1>
