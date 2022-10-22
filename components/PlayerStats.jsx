@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 const playerStatsContainerStyle = {
 	display: 'flex',
 	flexDirection: 'column',
-	margin: '20px',
 	gap: '10px',
 };
 

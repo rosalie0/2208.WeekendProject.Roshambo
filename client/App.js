@@ -19,6 +19,9 @@ const App = () => {
 		<div className="row container" style={paddingStyle}>
 			{/* Buttons to different urls */}
 			<div id="navbar">
+				<Link to="/">
+					<button>Home</button>
+				</Link>
 				<Link to="/leaderboard">
 					<button>Leaderboard</button>
 				</Link>

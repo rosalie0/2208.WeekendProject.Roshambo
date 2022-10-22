@@ -11,7 +11,6 @@ const invalidButtonStyle = { opacity: '0.2' };
 const createPlayerContainerStyle = {
 	display: 'flex',
 	flexDirection: 'column',
-	margin: '20px',
 	gap: '10px',
 };
 
@@ -57,14 +56,15 @@ const CreatePlayerForm = () => {
 
 	return (
 		<div style={createPlayerContainerStyle}>
-			Create new player form:
+			<h1>Create new player form:</h1>
 			<form onSubmit={handleFormSubmit}>
 				<label>
-					Username:
+					Username:{' '}
 					<input type="text" value={username} onChange={handleInputUsername} />
 				</label>
 				{!validUsername && (
 					<span style={invalidStyle}>
+						{' '}
 						User named {username} already exists...
 					</span>
 				)}
