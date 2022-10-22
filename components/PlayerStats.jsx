@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+const playerStatsContainerStyle = {
+	display: 'flex',
+	flexDirection: 'column',
+	margin: '20px',
+	gap: '10px',
+};
+
 // Shows their username along with a list of all of the games they’ve played
 const PlayerStats = () => {
 	const { playerId } = useParams(); // Get the playerID from URL params
@@ -29,7 +36,7 @@ const PlayerStats = () => {
 	if (!doneLoading) return <p>Loading...</p>;
 	else
 		return (
-			<div>
+			<div style={playerStatsContainerStyle}>
 				<p>Username: {player.username}</p>
 				<ul>Games Played: </ul>
 				{player.games.map(game => (

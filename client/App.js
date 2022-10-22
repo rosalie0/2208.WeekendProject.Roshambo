@@ -12,10 +12,11 @@ import NotFound from '../components/NotFound';
 import PlayerStats from '../components/PlayerStats';
 import CreatePlayerForm from '../components/CreatePlayerForm';
 
+const paddingStyle = { padding: '30px' };
 // URL '/' : Has two buttons linking to their respective pages - “Leaderboard” and “Play”
 const App = () => {
 	return (
-		<div className="row container">
+		<div className="row container" style={paddingStyle}>
 			{/* Buttons to different urls */}
 			<div id="navbar">
 				<Link to="/leaderboard">

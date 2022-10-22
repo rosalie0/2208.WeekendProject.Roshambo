@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Play = () => {
-	return <p>Play</p>;
+	return <div>Not implemented yet...</div>;
 };
 
 export default Play;
