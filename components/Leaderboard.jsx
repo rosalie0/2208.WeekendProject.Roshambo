@@ -11,14 +11,14 @@ import PlayerStats from './PlayerStats';
 
 const Leaderboard = () => {
 	// State
-	const [players, setPlayers] = useState([]);
+	const [players, setPlayers] = useState([]); //********* */
 
 	// API Fetch
 	const getPlayers = async () => {
 		console.log('Fetching players from db...');
 		const response = await fetch('/api/players');
 		const json = await response.json();
-		setPlayers(json);
+		setPlayers(json); //********* */
 	};
 
 	// UseEffect
