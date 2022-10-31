@@ -15,6 +15,7 @@ const Leaderboard = () => {
 
 	// API Fetch
 	const getPlayers = async () => {
+		console.log('Fetching players from db...');
 		const response = await fetch('/api/players');
 		const json = await response.json();
 		setPlayers(json);
@@ -22,6 +23,7 @@ const Leaderboard = () => {
 
 	// UseEffect
 	useEffect(() => {
+		console.log('Inside Leaderboards UseEffect []!');
 		getPlayers();
 	}, []);
 

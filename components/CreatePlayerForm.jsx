@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Axios makes POST easier.
+import { useNavigate } from 'react-router-dom';
 
 // Displays a small form with two items:
 // Username text input: decides the new user's username
@@ -16,6 +17,8 @@ const createPlayerContainerStyle = {
 
 // POST to /api/players takes an obj with just one key/value, called username.
 const CreatePlayerForm = () => {
+	const navigate = useNavigate();
+
 	const [username, setUsername] = useState('');
 	const [validUsername, setValidUsername] = useState(true);
 
@@ -38,6 +41,7 @@ const CreatePlayerForm = () => {
 	};
 
 	const handleFormSubmit = event => {
+		console.log(navigate);
 		event.preventDefault(); // Don't let HTML do its own POST.
 
 		// Only make POST req if username is valid.
@@ -45,6 +49,9 @@ const CreatePlayerForm = () => {
 			// Create body for POST
 			const body = { username };
 			axios.post('api/players', body); // No need to await - don't let client wait.
+
+			// Redirect user to /leaderboard
+			navigate('/leaderboard');
 		}
 	};
 
@@ -56,6 +63,7 @@ const CreatePlayerForm = () => {
 
 	return (
 		<div style={createPlayerContainerStyle}>
+			{console.log('hi')}
 			<h1>Create new player form:</h1>
 			<form onSubmit={handleFormSubmit}>
 				<label>
