@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	leaderboard: [],
+	allPlayers: [],
 };
 
 export const leaderboardSlice = createSlice({
@@ -9,10 +9,10 @@ export const leaderboardSlice = createSlice({
 	initialState,
 	reducers: {
 		setLeaderboard: (state, action) => {
-			state.leaderboard = action.payload;
+			state.allPlayers = action.payload;
 		},
 	},
 });
 
-export const { setLeaderboard } = leaderboardSlice.actions;
+export const { setAllPlayers } = leaderboardSlice.actions;
 export default leaderboardSlice.reducer;

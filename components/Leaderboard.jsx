@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import PlayerStats from './PlayerStats';
-
 // On load, makes a get request to /api/players
-// Stores the result in state
+// Stores the result store's leaderboardSlice
 // Displays a list of all players usernames
 // Clicking on a player takes you to the single player page (Remember the react-router-dom <Link /> component)
 
 const Leaderboard = () => {
-	// State
-	const [players, setPlayers] = useState([]); //********* */
+	// State - using React Hooks
+	// const [players, setPlayers] = useState([]);
+
+	// State using our redux slice
+	const players = useSelector(state => state.leaderboard.allPlayers);
+	console.log(players);
 
 	// API Fetch
 	const getPlayers = async () => {
 		console.log('Fetching players from db...');
 		const response = await fetch('/api/players');
 		const json = await response.json();
-		setPlayers(json); //********* */
+		// setPlayers(json); //********* */
 	};
 
 	// UseEffect
