@@ -8,7 +8,7 @@ export const leaderboardSlice = createSlice({
 	name: 'leaderboard',
 	initialState,
 	reducers: {
-		setLeaderboard: (state, action) => {
+		setAllPlayers: (state, action) => {
 			state.allPlayers = action.payload;
 		},
 	},

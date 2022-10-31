@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setAllPlayers } from '../features/leaderboardSlice';
 
 // On load, makes a get request to /api/players
 // Stores the result store's leaderboardSlice
@@ -16,12 +16,15 @@ const Leaderboard = () => {
 	const players = useSelector(state => state.leaderboard.allPlayers);
 	console.log(players);
 
+	const dispatch = useDispatch();
+
 	// API Fetch
 	const getPlayers = async () => {
 		console.log('Fetching players from db...');
 		const response = await fetch('/api/players');
 		const json = await response.json();
-		// setPlayers(json); //********* */
+		// setPlayers(json); //*** Using regular React Hooks and state*/
+		dispatch(setAllPlayers(json)); // Dispatch with custom made setter from redux slice
 	};
 
 	// UseEffect
