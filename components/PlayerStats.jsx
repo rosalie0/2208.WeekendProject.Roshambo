@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { setSelectedPlayer } from '../features/leaderboardSlice';
 
 const playerStatsContainerStyle = {
 	display: 'flex',
@@ -12,15 +14,18 @@ const PlayerStats = () => {
 	const { playerId } = useParams(); // Get the playerID from URL params
 
 	// STATE
-	const [player, setPlayer] = useState({}); // Start with empty obj
+	// const [player, setPlayer] = useState({}); // Start with empty obj
 	const [doneLoading, setDoneLoading] = useState(false); // True if no longer loading
+	const player = useSelector(state => state.leaderboard.selectedPlayer);
 
+	const dispatch = useDispatch();
 	// API Fetch
 	const getPlayer = async () => {
 		const response = await fetch(`/api/players/${playerId}`);
 		const json = await response.json();
-		setPlayer(json);
 		setDoneLoading(true); // Now we can map through player.games because it has loaded!
+		//setPlayer(json);  <- useState version
+		dispatch(setSelectedPlayer(json));
 	};
 
 	// UseEffect
