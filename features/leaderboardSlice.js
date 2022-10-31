@@ -25,11 +25,11 @@ export const leaderboardSlice = createSlice({
 		setSelectedPlayer: (state, action) => {
 			state.selectedPlayer = action.payload;
 		},
-	},
 
-	// EXTRA CREDIT: addPlayer - adds a brand new player to the allPlayers array
-	addPlayer: (state, action) => {
-		// TODO!
+		// EXTRA CREDIT: addPlayer - adds a brand new player to the allPlayers array
+		addPlayer: (state, action) => {
+			state.allPlayers.push(action.payload);
+		},
 	},
 });
 

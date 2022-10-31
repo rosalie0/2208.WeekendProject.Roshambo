@@ -29,7 +29,6 @@ const Leaderboard = () => {
 
 	// UseEffect
 	useEffect(() => {
-		console.log('Inside Leaderboards UseEffect []!');
 		getPlayers();
 	}, []);
 
